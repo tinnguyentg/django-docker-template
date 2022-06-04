@@ -22,7 +22,7 @@ services:
     build: ./django_service
     volumes:
       - ./django_service:/app
-    command: celery -A projectname worker -l INFO
+    command: celery -A project_name worker -l INFO
     env_file:
       - ./.env
     depends_on:
@@ -32,7 +32,7 @@ services:
     build: ./django_service
     volumes:
       - ./django_service:/app
-    command: celery -A projectname beat -l INFO
+    command: celery -A project_name beat -l INFO
     env_file:
       - ./.env
     depends_on:
