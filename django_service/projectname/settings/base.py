@@ -42,16 +42,21 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",  # new
+    "django.contrib.sitemaps",  # new
+    "django.contrib.humanize",  # new
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
-    # "django.middleware.security.SecurityMiddleware",
+    # "django.middleware.security.SecurityMiddleware", # removed
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # new
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    # "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "django.middleware.clickjacking.XFrameOptionsMiddleware", # removed
 ]
 
 ROOT_URLCONF = "projectname.urls"
