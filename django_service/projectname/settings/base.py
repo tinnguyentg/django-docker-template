@@ -74,6 +74,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # additonal context processors
+                "projectname.context_processors.google_analytics",
             ],
         },
     },
@@ -158,3 +160,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 CELERY_BROKER_URL = os.environ.get("REDIS_URL")
 CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL")
 CELERY_TIMEZONE = TIME_ZONE
+
+# GOOGLE_ANALYTICS_ID
+GOOGLE_ANALYTICS_ID = os.environ.get("GOOGLE_ANALYTICS_ID")
