@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin/
 
-Sitemap: https://{{ project_name }}.com/sitemap.xml/
+Sitemap: https://{{ project_name }}.com/sitemap.xml
