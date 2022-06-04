@@ -76,6 +76,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 # additonal context processors
                 "projectname.context_processors.google_analytics",
+                "projectname.context_processors.build_version",
             ],
         },
     },
