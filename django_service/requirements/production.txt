@@ -1,0 +1,6 @@
+celery
+redis
+django
+gunicorn
+dj-database-url
+django-debug-toolbar
