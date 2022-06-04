@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+
+if "development" in os.environ.get("DJANGO_SETTINGS_MODULE"):
+    # Include the debug toolbar if in development mode
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
