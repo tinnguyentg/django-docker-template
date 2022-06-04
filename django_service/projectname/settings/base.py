@@ -148,3 +148,7 @@ DEFAULT_FROM_EMAIL = "project_name@project_name.com"
 SERVER_EMAIL = "server@project_name.com"
 ADMINS = []
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Celery configurations
+CELERY_BROKER_URL = os.environ.get("REDIS_URL")
+CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL")
