@@ -118,6 +118,10 @@ LANGUAGES = [
     ("vi", _("Vietnamese")),
 ]
 
+LOCALE_PATHS = [
+    BASE_DIR / "locale/",
+]
+
 TIME_ZONE = "Asia/Ho_Chi_Minh"
 
 USE_I18N = True
@@ -138,3 +142,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Email configurations
+DEFAULT_FROM_EMAIL = "project_name@project_name.com"
+SERVER_EMAIL = "server@project_name.com"
+ADMINS = []
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
