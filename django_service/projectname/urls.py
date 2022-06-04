@@ -16,9 +16,24 @@ Including another URLconf
 import os
 
 from django.contrib import admin
+from django.contrib.sitemaps.views import index, sitemap
 from django.urls import include, path
 
+sitemaps = {}
+
 urlpatterns = [
+    path(
+        "sitemap.xml",
+        index,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
+    path(
+        "sitemap-<section>.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
     path("admin/", admin.site.urls),
 ]
 
