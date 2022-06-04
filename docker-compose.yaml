@@ -28,6 +28,16 @@ services:
     depends_on:
       - django
 
+  celery_beat:
+    build: ./django_service
+    volumes:
+      - ./django_service:/app
+    command: celery -A projectname beat -l INFO
+    env_file:
+      - ./.env
+    depends_on:
+      - django
+
   nginx:
     image: nginx:stable-alpine
     depends_on:
