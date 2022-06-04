@@ -1,3 +1,5 @@
+celery
+redis
 django
 gunicorn
 dj-database-url
