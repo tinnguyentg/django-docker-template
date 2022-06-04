@@ -16,6 +16,9 @@ FROM python:3.10.4-alpine as RUNNER
 
 WORKDIR /app
 
+# Install gettext
+RUN apk add --no-cache gettext
+
 COPY --from=BUILDER /build/wheels /wheels
 COPY --from=BUILDER /build/requirements .
 
