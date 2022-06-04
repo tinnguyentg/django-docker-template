@@ -15,3 +15,6 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 
 # Load task modules from all registered Django apps.
 app.autodiscover_tasks()
+
+# https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html#crontab-schedules
+app.conf.beat_schedule = {}
