@@ -24,7 +24,7 @@ COPY --from=BUILDER /build/requirements .
 
 RUN pip install --no-index /wheels/*
 
-COPY ./start /start
+COPY ./start.sh /start.sh
 RUN chmod +x /start
 
 COPY . .
