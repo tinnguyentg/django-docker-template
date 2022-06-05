@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",  # new
     "django.contrib.sitemaps",  # new
     "django.contrib.humanize",  # new
+    # third party apps
+    "django_celery_beat",
 ]
 SITE_ID = 1
 
@@ -161,6 +163,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 CELERY_BROKER_URL = os.environ.get("REDIS_URL")
 CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL")
 CELERY_TIMEZONE = TIME_ZONE
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers.DatabaseScheduler"
 
 # GOOGLE_ANALYTICS_ID
 GOOGLE_ANALYTICS_ID = os.environ.get("GOOGLE_ANALYTICS_ID")
