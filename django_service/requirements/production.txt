@@ -3,4 +3,5 @@ redis
 django
 gunicorn
 dj-database-url
+django-celery-beat
 django-debug-toolbar
