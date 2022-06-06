@@ -6,7 +6,7 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade wheel
 
 COPY requirements ./requirements
-RUN pip wheel --wheel-dir /build/wheels -r requirements/dev.txt
+RUN pip wheel --wheel-dir /build/wheels -r requirements/${DJANGO_ENV}.txt
 
 ###################################
 # Build the docker image
