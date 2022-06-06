@@ -4,8 +4,8 @@ WORKDIR /build
 
 RUN pip install --upgrade pip
 RUN pip install --upgrade wheel
-
 COPY requirements ./requirements
+ARG DJANGO_ENV
 RUN pip wheel --wheel-dir /build/wheels -r requirements/${DJANGO_ENV}.txt
 
 ###################################
