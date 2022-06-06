@@ -13,8 +13,8 @@ services:
       - ./django_service:/app
       - staticfiles:/app/staticfiles
     environment:
-      - SECRET_KEY='123'
-      - REDIS_URL='redis://redis:6379/0'
+      - SECRET_KEY=123
+      - REDIS_URL=redis://redis:6379/0
       - GOOGLE_ANALYTICS_ID
     depends_on:
       - redis
@@ -33,8 +33,8 @@ services:
       - ./django_service:/app
     command: celery -A {{project_name}} worker -l INFO
     environment:
-      - SECRET_KEY='123'
-      - REDIS_URL='redis://redis:6379/0'
+      - SECRET_KEY=123
+      - REDIS_URL=redis://redis:6379/0
       - GOOGLE_ANALYTICS_ID
     depends_on:
       - django
@@ -48,8 +48,8 @@ services:
       - ./django_service:/app
     command: celery -A {{project_name}} beat -l INFO
     environment:
-      - SECRET_KEY='123'
-      - REDIS_URL='redis://redis:6379/0'
+      - SECRET_KEY=123
+      - REDIS_URL=redis://redis:6379/0
       - GOOGLE_ANALYTICS_ID
     depends_on:
       - django
