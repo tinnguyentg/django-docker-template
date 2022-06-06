@@ -2,7 +2,10 @@ version: '3.8'
 
 services:
   django:
-    build: ./django_service
+    build:
+      context: ./django_service
+      args:
+        - DJANGO_ENV=development
     command: /start.sh
     expose:
       - 8000
@@ -10,7 +13,6 @@ services:
       - ./django_service:/app
       - staticfiles:/app/staticfiles
     environment:
-      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
@@ -23,12 +25,14 @@ services:
       - 6379
 
   celery_worker:
-    build: ./django_service
+    build:
+      context: ./django_service
+      args:
+        - DJANGO_ENV=development
     volumes:
       - ./django_service:/app
     command: celery -A {{project_name}} worker -l INFO
     environment:
-      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
@@ -36,12 +40,14 @@ services:
       - django
 
   celery_beat:
-    build: ./django_service
+    build:
+      context: ./django_service
+      args:
+        - DJANGO_ENV=development
     volumes:
       - ./django_service:/app
     command: celery -A {{project_name}} beat -l INFO
     environment:
-      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
