@@ -10,6 +10,7 @@ services:
       - ./django_service:/app
       - staticfiles:/app/staticfiles
     environment:
+      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
@@ -27,6 +28,7 @@ services:
       - ./django_service:/app
     command: celery -A {{project_name}} worker -l INFO
     environment:
+      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
@@ -39,6 +41,7 @@ services:
       - ./django_service:/app
     command: celery -A {{project_name}} beat -l INFO
     environment:
+      - DJANGO_ENV=development
       - SECRET_KEY='123'
       - REDIS_URL='redis://redis:6379/0'
       - GOOGLE_ANALYTICS_ID
